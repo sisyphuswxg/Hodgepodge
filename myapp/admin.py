@@ -34,7 +34,7 @@ class StudentsAdmin(admin.ModelAdmin):
         else:
             return "女"
     # # 列表页属性
-    list_display = ['pk', 'sname', 'sage', 'sgender', 'scontent', 'sgrade', 'isDelete']
+    list_display = ['pk', 'sname', 'sage', gender, 'scontent', 'sgrade', 'isDelete']
     list_filter = ['sname']
     search_fields = ['sname']
     list_per_page = 10
