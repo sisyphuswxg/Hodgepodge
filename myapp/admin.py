@@ -27,17 +27,26 @@ class GradesAdmin(admin.ModelAdmin):
     ]
 
 
+@admin.register(Students)
 class StudentsAdmin(admin.ModelAdmin):
     def gender(self):
         if self.sgender:
             return "男"
         else:
             return "女"
+
+    # 设置页面列的名称
+    gender.short_description = "性别"
+
     # # 列表页属性
     list_display = ['pk', 'sname', 'sage', gender, 'scontent', 'sgrade', 'isDelete']
     list_filter = ['sname']
     search_fields = ['sname']
     list_per_page = 10
+
+    # 执行动作的位置
+    actions_on_top = False
+    actions_on_bottom = True
 
     # # 添加、修改页属性
     fields = ['sname', 'sage', 'sgender', 'scontent', 'sgrade', 'isDelete']
@@ -48,4 +57,4 @@ class StudentsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Grades, GradesAdmin)
-admin.site.register(Students, StudentsAdmin)
+# admin.site.register(Students, StudentsAdmin)
