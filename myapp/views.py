@@ -27,3 +27,9 @@ def students(request):
     students_list = Students.objects.all()
     # 将数据传递给模板，模板再渲染给页面，将渲染的页面返回给浏览器
     return render(request, 'myapp/students.html', {"students": students_list})
+
+
+def students_in_grade(request, gid):
+    grade = Grades.objects.get(pk=gid)
+    students_list = grade.students_set.all()
+    return render(request, 'myapp/students.html', {"students": students_list})

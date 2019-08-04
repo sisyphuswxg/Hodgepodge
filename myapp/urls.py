@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^(\d+)/(\d+)/$', views.detail),
     url(r'^grades/$', views.grades),
     url(r'^students/$', views.students),
+    url(r'^grades/(\d+)/$', views.students_in_grade),
 ]
